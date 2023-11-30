@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*,
+::after
+::before{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins' ,sans-serif;
+    margin: 0;
+    background-image: url("bluebackground.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+/* Layout skelton */
+
+.wrapper{
+    align-items: stretch;
+    display: flex;
+    width: 100%;
+}
+
+#sidebar{
+    max-width: 264px;
+    min-width: 264px;
+    transition: all 0.35s ease-in-out;
+}
+
+/* Sidebar collapse class*/
+#sidebar.collapsed{
+    margin-left: -264px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+}
+
+.sidebar-logo{
+    padding: 1.15rem 1.5rem;
+}
+
+.sidebar-logo a{
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sidebar-nav{
+    padding: 0;
+}
+
+.sidebar-header{
+    color: white;
+    font-size: .75rem;
+    padding: 1.5rem 1.5rem .375rem;
+}
+
+a.sidebar-link{
+    padding: .625rem 1.625rem;
+    color: white;
+    position: relative;
+    display: block;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.sidebar-link[data-bs-toggle="collapse"]::after{
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5em;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+
+.sidebar-link[data-bs-toggle="collapse"].collapsed::after{
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.main--title{
+    color: white;
+    padding-bottom: 10px;
+    font-size: 24px;
+}
+
+.page{
+    background: rgb(37, 120, 255, 255);
+    
+}
+
+.tabular--wrapper{
+    background: rgba(28, 20, 20, 0.3);
+    margin-top:1rem;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.container{
+    margin-top:15px;
+}
+
+/*.tabular--wrapper button{
+    background: rgba(128, 128, 128, 0.3);
+}*/
+
+.active{
+    color: white;
+    background: rgba(113, 99, 186, 255);
+}
+
+
+.tablular-container{
+    width: 100%
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    background: rgb(37, 120, 255, 0.3);
+    color: #fff;
+}
+
+tbody{
+    background: rgba(128,128,128,0.3);
+    
+}
+
+td{
+    padding:15px;
+    font-size:14px;
+    color:#f2f2f2;
+}
+
+tr::nth-child(even){
+    background: #fff;
+}
+
+tfoot{
+    background: rgba(113, 99, 186, 255);
+    font-weight: bold;
+    color:#fff;
+}
+
+tfoot td{
+    padding: 15px;
+}
+
+.table-container button{
+    color: white;
+    background-color: rgb(37, 120, 255, 0.3);
+    cursor: pointer;
+    margin-top: 5px;
+    margin-right: 0px;
+    width: 63px;
+    height: 39px;
+    font-size: 10px;
+}
+
+.myModal{
+    width: 350px;
+    height: 440px;
+    border: 13px rgb(37, 120, 255, 0.3);
+    background-color: rgb(255,255,255,255);
+    border-radius: 25px;
+    padding: 20px;
+}
+
+hr{
+    width: 300px;
+}
+
+hr.hh{
+    width: 700px;
+}
+
+.hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .openBtn {
+    display: flex;
+    justify-content: left;
+  }
+  .openButton {
+    border: none;
+    border-radius: 5px;
+    background-color: #1c87c9;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    position: fixed;
+  }
+
+  .loginPopup {
+    position: absolute;
+    text-align: center;
+    overflow-y: auto;
+    height: 100px;
+    width: 400%;
+  }
+  .formPopup {
+    display: none;
+    position: fixed;
+    overflow: auto;
+    left: 55%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+  }
+  .form-groupL{
+    display: table-cell;
+    padding: 10px;
+    margin-left: 25%;
+    margin: auto;
+    
+}
+
+.form-groupR{
+    display: table-cell;
+    padding: 10px;
+    margin-left: 50%;
+    margin: auto;
+}
+form{
+    width: 100%;
+    height: 100%;
+}
+
+.form-row{
+    display: table;
+    height: auto;
+    width: 33.3%;
+	float: left;
+    margin: auto;
+}
+
+  .formBackground {
+    background-color: white;
+    border-radius: 25px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 30px;
+    margin-right: 23%;
+    width: 75%;
+    height: auto;
+    scale: 104%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    transition: all 0.35s ease-in-out;
+  }
+
+  .wrap {
+    height: 12%;
+    text-align: left;
+    
+    line-height: auto;
+    font-size: 20px;
+    font-family: Arial;
+    position: absolute;
+    bottom: -7%;
+}
+
+.inner_wrapL {
+    display: table-cell;
+    padding: 10px;
+    margin-left: 25%;
+    margin: auto;
+}
+.inner_wrapR {
+    display: table-cell;
+    padding: 10px;
+    margin-left: 50%;
+    margin: auto;
+}
+
+
+  .formContainer {
+    max-width: 600px;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fff;
+    
+  }
+  .formContainer input[type=text],
+  .formContainer input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 20px 0;
+    border: none;
+    background: #eee;
+  }
+  .formContainer input[type=text]:focus,
+  .formContainer input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .formContainer .btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: #8ebf42;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+  }
+  .formContainer .cancel {
+    background-color: #cc0000;
+  }
+  .formContainer .btn:hover,
+  .openButton:hover {
+    opacity: 1;
+  }

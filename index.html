@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5d0dcf5f1b.js" crossorigin="anonymous"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+    <title>Customers Application</title>
+</head>
+<body>
+    <!-- wrapper for the whole Customer Admin View -->
+    <div class="wrapper">
+        <!-- Sidebar-->
+        <aside id="sidebar">
+            <div class="h-100">
+                <!-- Sidebar logo-->
+                <div class="sidebar-logo">
+                    <a href=".">Customer Admin</a>
+                </div>
+                <!-- Sidebar Navigation-->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Tools & Components
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#pages" aria-expanded="false" aria-controls="pages">
+                            <i class="fa-regular fa-file-lines"></i>
+                            Customer Data
+                        </a>
+                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar" >
+                            <li class="sidebar-item">
+                                <A class="sidebar-link" id="ViewCustomers" >View All Customers</A>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-header">
+                        User Creation
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#data" aria-expanded="false" aria-controls="data">
+                            <i class="fa-regular fa-user"></i>
+                            Create New Users
+                        </a>
+                        <ul id="data" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <A href="#" class="sidebar-link" id="CreateNewUser">User Creation Form</A>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- Main Window Component-->
+        <div class="main">
+            <!-- bootstrap -->
+            <nav class="navbar navbar-expand-lg px-3 border-bottom">
+                <!-- Button to toggle the sidebar-->
+                <button class="btn" type="button" data-bs-theme="dark">
+                    <!-- Creates the hamburger menu with bootstrap -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+            <div class="tabular--wrapper" style="display: block;">
+                <h3 class="main--title">
+                    All Customers
+                </h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Customer Number</th>
+                                <th>First Name</th>
+                                <th>Last name</th>
+                                <th>Date Of Birth</th>
+                                <th>SSN</th>
+                                <th>Age</th>
+                                <th>More Info</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container">
+                    <div id="pagination-wrapper" class ="pagination"></div>
+                </div>
+            </div>
+            <div class="formBackground" style="display: none;">
+              <form>
+                <h2> Add New Customer</h2>
+                <hr class="hh">
+                <div class="form-row">
+                  <div class="form-groupL">
+                    <label><strong>Customer Number</strong></label>
+                    <input type="text"  id="customerNumber" placeholder= "Your Customer Number" name="customerNumber">
+                    <div id="customerNumberError" class="invalid-feedback" style="display: none;">
+                        Please enter a 5 digit number
+                    </div>
+                </div>
+                  <div class="form-groupR">
+                    <label><strong>First Name</strong></label>
+                    <input type="text" id="firstName" placeholder="First Name" name="firstName" >
+                    <div id="firstNameError" class="invalid-feedback" style="display: none;">
+                        Please enter your first name
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-groupL">
+                        <label><strong>Last Name</strong></label>
+                        <input type="text" id="lastName" placeholder="Last Name" name="lastName" >
+                        <div id="lastNameError" class="invalid-feedback" style="display: none;">
+                            Please enter your last name
+                        </div>
+                    </div>
+                    <div class="form-groupR">
+                        <label><strong>Date Of Birth</strong></label>
+                        <input type="text" id="dob" placeholder="DOB mm/dd/yyyy" name="dob" >
+                        <div id="dobError" class="invalid-feedback" style="display: none;">
+                            Please enter your date of birth
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-groupL">
+                    <label><strong>SSN</strong> </label>
+                    <input type="text" id="SSN" placeholder="SSN: 123-45-6789" name="SSN" >
+                    <div id="SSNError" class="invalid-feedback" style="display: none;">
+                        Please enter your social security number 
+                    </div>
+                  </div>
+                  <div class="form-groupR">
+                    <label><strong>E-mail</strong> </label>
+                    <input type="text" id="email" placeholder="Your Email" name="email" >
+                    <div id="emailError" class="invalid-feedback" style="display: none;">
+                        Please enter a correct email 
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-groupL ">
+                        <label> <strong>Address</strong> </label>
+                        <input type="text" id="Address" placeholder="ex. 123 Mistery Lane" name="Address" >
+                        <div id="AddressError" class="invalid-feedback" style="display: none;">
+                            Please enter a correct address
+                        </div>
+                    </div>
+                    <div class="form-groupR">
+                        <label><strong>City</strong> </label>
+                        <input type="text" id="City" placeholder="ex. Miami" name="City" >
+                        <div id="CityError" class="invalid-feedback" style="display: none;">
+                            Please enter a city
+                        </div>
+                    </div>
+                </div>   
+                <div class="form-row">
+                    <div class="form-groupL ">
+                        <label> <strong>Zip Code</strong> </label>
+                        <input type="text" id="Zipcode" placeholder="ex. 30853" name="Zipcode" >
+                        <div id="ZipcodeError" class="invalid-feedback" style="display: none;">
+                            Please enter a correct zip code
+                        </div>
+                    </div>
+                    <div class="form-groupR">
+                        <label><strong>Phone Number</strong> </label>
+                        <input type="text" id="PhoneNumber" placeholder="ex. 444-444-4444" name="City" >
+                        <div id="PhoneNumberError" class="invalid-feedback" style="display: none;">
+                            Please enter a phone number
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="inner_wrapL">
+                        <button class="btn btn-success" id="submitButton">Submit</button>
+                    </div>
+                    <div class="inner_wrapR">
+                        <button class="btn btn-danger" id="closeButton">Close</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+       </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./js/script.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
+</body>
+</html>
